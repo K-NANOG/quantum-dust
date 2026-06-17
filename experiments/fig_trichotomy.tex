@@ -1,0 +1,54 @@
+% Honest trichotomy figure (diagnostic for the next paper). Monochrome.
+% Data: experiments/data/fig_{raw,idos,rescaled}.csv  (real spectra, N=576).
+\documentclass[border=6pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\newlength{\pw}\setlength{\pw}{5.4cm}
+\pgfplotsset{
+  tri/.style={width=\pw, height=0.82\pw, tick label style={font=\scriptsize},
+    label style={font=\footnotesize}, title style={font=\footnotesize},
+    legend style={font=\scriptsize, draw=black!60, fill=white, fill opacity=0.85,
+                  text opacity=1, inner sep=1pt}, legend cell align=left,
+    grid=both, grid style={black!10}, axis line style={black!80},
+    every axis plot/.append style={line width=0.8pt}},
+  cdtL/.style={black, solid, mark=*, mark size=0.9pt, mark repeat=8},
+  cauL/.style={black, dashed, mark=square*, mark size=0.9pt, mark repeat=8},
+  melL/.style={black, dotted, mark=triangle*, mark size=1.1pt, mark repeat=8},
+}
+\begin{document}
+\begin{tikzpicture}
+
+% Panel 1: raw running spectral dimension
+\begin{axis}[tri, name=p1,
+  xlabel={$\log_{10}\sigma$}, ylabel={$D_S(\sigma)$},
+  title={raw: plateau vs crossing}, ymin=0, ymax=5.5, xmin=-2, xmax=2,
+  legend pos=north west]
+  \addplot[cdtL] table[x=logsig,y=cdt]{data/fig_raw.csv}; \addlegendentry{CDT}
+  \addplot[cauL] table[x=logsig,y=cau]{data/fig_raw.csv}; \addlegendentry{causal set}
+  \addplot[melL] table[x=logsig,y=mel]{data/fig_raw.csv}; \addlegendentry{melonic}
+  \draw[black!55, densely dashed] (axis cs:-2,2) -- (axis cs:2,2);
+\end{axis}
+
+% Panel 2: integrated density of states near zero (tail vs gap)
+\begin{axis}[tri, name=p2, at={(p1.right of east)}, anchor=left of west, xshift=1.5cm,
+  xlabel={$\lambda$}, ylabel={fraction of eigenvalues $\le\lambda$},
+  title={near-0 density: tail vs gap}, xmin=0, xmax=0.55, ymin=0, ymax=0.45,
+  legend pos=north west]
+  \addplot[cdtL] table[x=lam,y=cdt]{data/fig_idos.csv}; \addlegendentry{CDT (tail)}
+  \addplot[cauL] table[x=lam,y=cau]{data/fig_idos.csv}; \addlegendentry{causal (gap)}
+  \addplot[melL] table[x=lam,y=mel]{data/fig_idos.csv}; \addlegendentry{melonic (tail)}
+\end{axis}
+
+% Panel 3: rescaled to relaxation units; the dust 2*tau line; who lands on it
+\begin{axis}[tri, name=p3, at={(p2.right of east)}, anchor=left of west, xshift=1.5cm,
+  xlabel={$\tau=\sigma\langle\lambda\rangle$ \ (relaxation units)}, ylabel={$D_S(\tau)$},
+  title={rescaled: only the dust stays on $2\tau$}, xmin=0, xmax=3, ymin=0, ymax=5.5,
+  legend pos=north west]
+  \addplot[black, line width=1.3pt] table[x=tau,y=dust]{data/fig_rescaled.csv}; \addlegendentry{dust ($2\tau$)}
+  \addplot[cdtL] table[x=tau,y=cdt]{data/fig_rescaled.csv}; \addlegendentry{CDT}
+  \addplot[cauL] table[x=tau,y=cau]{data/fig_rescaled.csv}; \addlegendentry{causal set}
+  \addplot[melL] table[x=tau,y=mel]{data/fig_rescaled.csv}; \addlegendentry{melonic}
+\end{axis}
+
+\end{tikzpicture}
+\end{document}

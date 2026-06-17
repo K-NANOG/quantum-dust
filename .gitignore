@@ -1,0 +1,27 @@
+# Lean 4 / Lake
+.lake/
+lake-packages/
+build/
+.cache/
+*.olean
+
+# Nix
+result
+result-*
+
+# Editor
+.vscode/settings.json
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Large generated files
+*.txt
+/.lake
