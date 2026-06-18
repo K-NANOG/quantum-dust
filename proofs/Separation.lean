@@ -15,7 +15,7 @@ sequence IS spectrally faithful and the existential is FALSE. The `2 ≤ N` hypo
 soundness bug. (The MMS axiom carried no such hypothesis, so `naor_embedding_barrier 1` asserted
 a falsehood.)
 -/
-import Verified.CompleteGraph
+import proofs.CompleteGraph
 
 namespace Verified.Separation
 open SpectralDimension

@@ -14,7 +14,7 @@ single scale it possesses." The SLOPE statement (dD_S/dln t at the crossing is
 nonzero, equal to the value in the linear regime) is proved on paper only — it
 is a derivative of a log of a heat trace, not formalized here. 0 physics axioms.
 -/
-import Verified.CompleteGraph
+import proofs.CompleteGraph
 
 namespace Verified.RelaxationTime
 

@@ -10,7 +10,7 @@ D_S(K_m,1)→2 (Verified.CompleteGraph). 0 physics axioms.
 The upstream Lévy step ("concentration of measure ⇒ eigenvalues → K_m") is the cited input
 (Ledoux 2001; Milman–Schechtman 1986), supplied here as the explicit hypothesis `h_close`.
 -/
-import Verified.Stability
+import proofs.Stability
 
 namespace Verified.UniversalValue
 open SpectralDimension Stability Filter Topology

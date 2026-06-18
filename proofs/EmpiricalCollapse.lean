@@ -19,7 +19,7 @@ Both → 0 since `N · q = C(m,2)·cos^{2n}ε → 0` for fixed m. Elementary; 0 
 The marginal law `u ~ Beta(1,n)` is the one cited input, entering as the hypothesis `htail`.
 -/
 import Mathlib
-import Verified.Concentration
+import proofs.Concentration
 
 namespace Verified.EmpiricalCollapse
 

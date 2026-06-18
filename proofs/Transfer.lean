@@ -18,8 +18,8 @@ The heat-trace squeeze is over a finite spectrum (the link graph). The exponent 
 abstract over `ℝ → ℝ` heat traces, since a genuine negative exponent `L = -d/2` needs
 eigenvalues accumulating at zero, the continuum / `N → ∞` object that no finite graph carries.
 -/
-import Verified.CompleteGraph
-import Verified.Separation
+import proofs.CompleteGraph
+import proofs.Separation
 
 namespace Verified.Transfer
 

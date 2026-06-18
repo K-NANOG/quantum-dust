@@ -13,7 +13,7 @@ require mathlib from git
 -- The machine-checked core of *Quantum Dust from the Curse of Dimensionality*.
 -- Every result asserted "proved" in the paper lives here and passes `#print axioms`
 -- with only [propext, Classical.choice, Quot.sound]. Self-contained: nothing here
--- imports outside `Verified` and Mathlib.
+-- imports outside `proofs` and Mathlib.
 @[default_target]
-lean_lib Verified where
-  globs := #[.submodules `Verified]
+lean_lib proofs where
+  globs := #[.submodules `proofs]

@@ -5,17 +5,17 @@ depend on NOTHING beyond Lean's three foundational axioms
   [propext, Classical.choice, Quot.sound]
 and in particular must show NO `sorryAx` and NONE of the MMS-tree physics axioms.
 -/
-import Verified.CompleteGraph
-import Verified.Concentration
-import Verified.Separation
-import Verified.UniversalValue
-import Verified.Monogamy
-import Verified.RelaxationTime
-import Verified.Stability
-import Verified.Transfer
-import Verified.PowerLaw
-import Verified.BetaMoments
-import Verified.EmpiricalCollapse
+import proofs.CompleteGraph
+import proofs.Concentration
+import proofs.Separation
+import proofs.UniversalValue
+import proofs.Monogamy
+import proofs.RelaxationTime
+import proofs.Stability
+import proofs.Transfer
+import proofs.PowerLaw
+import proofs.BetaMoments
+import proofs.EmpiricalCollapse
 
 -- L3: K_m has running spectral dimension D_S(1) -> 2 as m -> infinity.
 #print axioms SpectralDimension.completeGraph_spectralDimension_two
